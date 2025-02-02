@@ -1,3 +1,5 @@
+//repository layer is the one which has classes and function responsible for interacting with the DB.
+//fetch the data of user based on some conditions
 import user from "../schema/user";
 import User from "./schema/user.js";
 

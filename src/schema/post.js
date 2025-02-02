@@ -3,20 +3,19 @@ import mongoose from "mongoose";
 const postSchema = new mongoose.Schema(
   {
     caption:{
-      type : string ,
+      type : String ,
       required : true ,
       minLength: 5
     },
     image:{
-      type: string,
+      type: String,
       required : true
     },
-    user:{
+    userId:{
       type: mongoose.Schema.Types.ObjectId, // created a id which always belongs to a ref property
       ref: "User"
     }
-  }
-);
+  },{timestamp : true});
 
-const post = mongoose.model("post",postSchema);
+const post = mongoose.model("post",postSchema); // create a connection for user
 export default post;

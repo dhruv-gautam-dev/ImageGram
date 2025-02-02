@@ -26,7 +26,7 @@ const userSchema = new  mongoose.Schema( // helps to create a schema | takes a o
       required : true,
       minLength:5
     }
-  }
+  },{timestamps : true}
 );  
 
 const user = mongoose.model("User",userSchema); // create a user connection
