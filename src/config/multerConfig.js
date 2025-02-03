@@ -10,7 +10,15 @@ export const s3Uploader = multer({
     s3:s3,
     bucket:AWS_BUCKET_NAME,
     key: function (req, file, cb){
-      console.log(file);
+      if(!file ){
+        console.log("in multer config",file);
+        return cb(new Error("File not found"))
+      }
+      // check memetype for file types
+      if(file.mimetype !== "image/jpeg" && file.mimetype !== "image/png" ){
+        return cb(new Error("File type not supported "))
+      }
+      console.log("in multer config 2",file);
       const uniqueSuffix = Date.now()+ "-"+Math.round(Math.random()*1e9); // to make sure the key is unique.
       cb(null, file.fieldname+"-"+ uniqueSuffix+"."+ file.mimetype.split("/")[1]);
     }
