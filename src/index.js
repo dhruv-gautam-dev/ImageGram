@@ -2,7 +2,6 @@ import express, { urlencoded } from 'express';
 import connectDB from './config/dbConfig.js';
 import apiRouter from "./routers/apiRouter.js";
 import multer from 'multer';
-import { isAuthenticated } from './Middlewares/authMiddleware.js';
 import ip from "ip";
 const PORT  = 3000;
 const app = express(); // returns an server object
