@@ -3,7 +3,7 @@ import connectDB from './config/dbConfig.js';
 import apiRouter from "./routers/apiRouter.js";
 import multer from 'multer';
 import { isAuthenticated } from './Middlewares/authMiddleware.js';
-
+import ip from "ip";
 const PORT  = 3000;
 const app = express(); // returns an server object
 const upload=multer();
@@ -21,7 +21,8 @@ app.get('/ping',isAuthenticated,(req,res)=>{
   console.log(req.query);
   console.log(req.body);
   console.log(req.user);
-  return res.json({message: 'pong'});
+  const ipAdr =  ip.address();
+  return res.json({message: 'pong'+ipAdr});
 });
 
 
