@@ -22,7 +22,6 @@ export const signupUserService = async (user)=>{
 
 export const signinUserService = async (userDetails)=>{
   try {
-    console.log(userDetails.email);
     // check if there is valid registered email with the email
     const user = await findUserByEmail(userDetails.email);
  
@@ -48,3 +47,12 @@ export const signinUserService = async (userDetails)=>{
   }
   
 }
+
+export const checkIfUserExists = async(email)=>{
+  try{
+    const user = await findUserByEmail(email);
+    return user;
+  }catch(error){
+    throw error;
+  }
+};

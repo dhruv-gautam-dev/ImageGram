@@ -36,7 +36,6 @@ export async function signupUser(req,res) {
 export async function signin(req,res) {
   try {
     const response = await signinUserService(req.body);
-    console.log("in usercontroller",req.body);
     return res.status(200).json({
       success:true,
       message:"user signed in successfully",
