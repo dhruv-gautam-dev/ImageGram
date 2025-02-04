@@ -17,7 +17,7 @@ app.use("/api",apiRouter);
 
 
 //sending a request
-app.get('/ping',isAuthenticated,(req,res)=>{
+app.get('/ping',(req,res)=>{
   console.log(req.query);
   console.log(req.body);
   console.log(req.user);
