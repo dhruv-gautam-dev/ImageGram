@@ -7,6 +7,7 @@ export const findUserByEmail = async(email)=>{
   try{
     //ORM Queries
     const user = await User.findOne({email});
+    console.log("in user repo ", user)
     return user;
   }catch(error){
     console.log(error);
